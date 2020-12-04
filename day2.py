@@ -1,6 +1,9 @@
 import sys
 
 def main():
+    part2()
+
+def part2():
     validcount = 0
     for line in sys.stdin:
         blah = line.split()
