@@ -39,8 +39,6 @@ def get_maskset(maskline):
     for i in range(36):
         if mask[i] == 'X':
             exes.append(2**(36 - i - 1)) 
-    #print(mask)
-    #print(maskbase, exes)
     return maskbase, exes
 
 def get_all_mems(baseaddr, maskset):
