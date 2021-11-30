@@ -163,6 +163,12 @@ def main():
     with open(sys.argv[1], 'r') as fp:
         txt = fp.read()
 
+    lc = LifeCube(txt.strip())
+    for i in range(6):
+        lc.step()
+
+    print(lc.active_count())
+
     lc = TimeCube(txt.strip())
     for i in range(6):
         lc.step()
