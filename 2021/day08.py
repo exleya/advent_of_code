@@ -117,7 +117,7 @@ class Mapping:
         else:
             toremove = []
             for mapping in self.generate_mappings():
-                #print(mapping)
+                print(mapping)
                 #print('trying to match pattern:')
                 #print(pattern)
                 spattern = ''.join(sorted(list(pattern)))
