@@ -114,42 +114,6 @@ class Packet:
                 tot += p.version_sum()
             return tot
 
-    #
-    # def build_as_subpacket(self):
-    #     self.version = int(self.binary[0:3],2)
-    #     #print(self.version)
-    #     self.type = int(self.binary[3:6],2)
-    #     #print(self.type)
-    #     if self.type == 4:
-    #         i = 6
-    #         num = ''
-    #         while self.binary[i] == '1':
-    #             num += self.binary[i+1:i+5]
-    #             i += 5
-    #         num += self.binary[i+1:i+5]
-    #         self.value = int(num, 2)
-    #         return i
-    #     else:
-    #         self.typeid = int(self.binary[6])
-    #         if self.typeid == 0:
-    #             self.sp_length = int(self.binary[7:22],2)
-    #             sp_start = 22
-    #             sp_end = 22 + self.sp_length
-    #             while sp_start < sp_end:
-    #                 p = Packet(self.binary[sp_start:sp_end], False)
-    #                 sp_start = p.build_as_subpacket()
-    #                 self.sp_list.append(p)
-    #             return sp_start
-    #         elif self.typeid == 1:
-    #             self.sp_num = int(self.binary[7:18], 2)
-    #             sp_start = 18
-    #             for i in range(self.sp_num):
-    #                 p = Packet(self.binary[sp_start:sp_end], False)
-    #                 sp_start = p.build_as_subpacket()
-    #                 self.sp_list.append(p)
-    #             return sp_start
-
-
 def part1(fname):
     with open(fname) as fp:
         line = fp.readline()
@@ -163,10 +127,8 @@ def part2(fname):
         return p.get_value()
 
 def bstring(hexstring):
-    #print(hexstring)
     b = bin(int(hexstring, 16))[2:]
     b = b.zfill(((len(b) + 3) // 4) * 4)
-    #print(b)
     i = 0
     while hexstring[i] == '0':
         b = '0000' + b
@@ -174,16 +136,6 @@ def bstring(hexstring):
     return b
 
 def main():
-
-    # p = build_packet(bstring('D2FE28'))
-    # print(p)
-    # p = build_packet('11010001010')
-    # print(p)
-
-    # p = build_packet(bstring('38006F45291200'))
-    # print(p)
-    # p = build_packet(bstring('EE00D40C823060'))
-    # print(p[0])
     p = build_packet(bstring('9C0141080250320F1802104A08'))
     print(p[0])
     print(p[0].get_value())
