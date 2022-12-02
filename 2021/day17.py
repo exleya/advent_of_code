@@ -53,7 +53,7 @@ def part1():
                 #print(p)
                 #input()
         y+=1
-    return sorted(hits)
+    return sorted(hits)[-1][0]
 
 
 
@@ -73,7 +73,7 @@ def part2():
                 #print(p)
                 #input()
         y+=1
-    print(sorted(list(hits)))
+    #print(sorted(list(hits)))
     return len(hits)
 
 
